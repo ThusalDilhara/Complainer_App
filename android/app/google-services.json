@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "700466719744",
+    "project_id": "complainer-a91b2",
+    "storage_bucket": "complainer-a91b2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:700466719744:android:adef6568ab7caa097b3ce5",
+        "android_client_info": {
+          "package_name": "com.example.complainer_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAALHRUy870pR15HtVwfPDaOXrgmBil-Zw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
