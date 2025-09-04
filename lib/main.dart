@@ -1,6 +1,6 @@
+import 'package:complainer_app/WelcomePage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'CategoryPage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +17,7 @@ class ComplainerApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Complainer App',
       theme: ThemeData(colorSchemeSeed: Colors.blue, useMaterial3: true),
-      home: const CategoryPage(),
+      home: const WelcomeScreen(),
     );
   }
 }
