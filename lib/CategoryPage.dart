@@ -37,8 +37,9 @@ class _CategoryPageState extends State<CategoryPage> {
     return '$y-$m-$d';
   }
 
+  Map<String, int> _categoryCounters = {};
+
   Future<void> _takePhoto() async {
-    // Request camera permission
     final status = await Permission.camera.request();
     if (!status.isGranted) {
       if (mounted) {
@@ -54,12 +55,16 @@ class _CategoryPageState extends State<CategoryPage> {
 
     if (picked == null) return;
 
-    // Generate file name: [YYYY-MM-DD]_[SelectedOption]_0.jpg
     final timestamp = _todayDateStamp();
     final option = (_selected ?? 'Other').trim().replaceAll(' ', '');
-    final fileName = '${timestamp}_${option}_0.jpg';
 
-    // Compress image
+    // build unique key for date+category
+    final key = '${timestamp}_$option';
+    final count = (_categoryCounters[key] ?? -1) + 1;
+    _categoryCounters[key] = count;
+
+    final fileName = '${key}_$count.jpg';
+
     final dir = await getTemporaryDirectory();
     final targetPath = '${dir.path}/$fileName';
 
