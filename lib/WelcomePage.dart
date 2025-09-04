@@ -1,3 +1,5 @@
+// welcome page that appears first when the app is launched
+
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'CategoryPage.dart';
@@ -51,7 +53,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        // Gradient background
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [Color(0xFF1565C0), Color(0xFF0D47A1)],
@@ -67,7 +68,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // Icon with red accent
                   Icon(
                     Icons.campaign,
                     size: 110,
@@ -75,7 +75,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   ),
                   const SizedBox(height: 25),
 
-                  // App Name
                   const Text(
                     "Complainer",
                     style: TextStyle(
@@ -94,7 +93,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   ),
                   const SizedBox(height: 15),
 
-                  // Slogan
                   const Text(
                     "Raise it · Track it · Fix it",
                     textAlign: TextAlign.center,

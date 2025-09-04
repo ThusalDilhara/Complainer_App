@@ -39,6 +39,7 @@ class _CategoryPageState extends State<CategoryPage> {
 
   Map<String, int> _categoryCounters = {};
 
+  // runs when the user click take photo btn
   Future<void> _takePhoto() async {
     final status = await Permission.camera.request();
     if (!status.isGranted) {
@@ -88,6 +89,7 @@ class _CategoryPageState extends State<CategoryPage> {
     }
   }
 
+  //upload to firebase handled here. runs when user click upload
   Future<void> _uploadPhoto() async {
     if (_imageFile == null || _fileName == null || _selected == null) {
       return;
@@ -105,7 +107,7 @@ class _CategoryPageState extends State<CategoryPage> {
         'fileName': _fileName,
         'category': _selected,
         'imageData': base64Image,
-        'createdAt': FieldValue.serverTimestamp(),
+        'createdAt': DateTime.now(),
         'status': 'pending',
       });
 
@@ -134,7 +136,7 @@ class _CategoryPageState extends State<CategoryPage> {
         ),
       );
 
-      // Reset UI
+      // Reset UI to initial state
       setState(() {
         _imageFile = null;
         _fileName = null;
@@ -162,12 +164,12 @@ class _CategoryPageState extends State<CategoryPage> {
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.bold,
-            color: Colors.white, // keep text white for contrast
+            color: Colors.white,
           ),
         ),
         centerTitle: true,
-        elevation: 4, // subtle shadow for depth
-        backgroundColor: Color(0xFF1565C0), // a nice deep blue
+        elevation: 4,
+        backgroundColor: Color(0xFF1565C0),
       ),
       body: SafeArea(
         child: Padding(
@@ -243,7 +245,7 @@ class _CategoryPageState extends State<CategoryPage> {
 
               const SizedBox(height: 20),
 
-              // Preview + filename + actions
+              // Preview
               if (_imageFile != null) ...[
                 ClipRRect(
                   borderRadius: BorderRadius.circular(12),
@@ -256,7 +258,10 @@ class _CategoryPageState extends State<CategoryPage> {
                 const SizedBox(height: 12),
                 Text(
                   'File: ${_fileName ?? ''}',
-                  style: const TextStyle(fontSize: 14, color: Colors.grey),
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: Color.fromARGB(255, 56, 56, 56),
+                  ),
                 ),
                 const SizedBox(height: 20),
 
